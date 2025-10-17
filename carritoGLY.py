@@ -1,5 +1,11 @@
+import os 
+from dotenv import load_dotenv
 import psycopg
 from pydantic import BaseModel
+
+
+load_dotenv()
+password = os.getenv("passwords")
 # definimos las clases
 
 class cliente(BaseModel):
@@ -32,7 +38,7 @@ class carrito:
         conn = psycopg.connect(
             dbname="clienteProducto",
             user="tralalero",
-            password="panchoyanelli321",
+            password= "+passwords",
             host="localhost",
             port="5432"
         )
@@ -49,7 +55,7 @@ class carrito:
         conn = psycopg.connect(
             dbname="clienteProducto",
             user="tralalero",
-            password="panchoyanelli321",
+            password = "passwords",
             host="localhost",
             port="5432"
         )
@@ -67,7 +73,7 @@ class carrito:
         conn = psycopg.connect(
             mibd="clienteProducto",
             usuario="tralalero",
-            contraseña="panchoyanelli321",
+            contraseña= "passwords",
             host="localhost",
             puerto="1234"
         )
