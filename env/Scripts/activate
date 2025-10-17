@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\MI FAMILIA YANELLI\Desktop\ggg\env"
+VIRTUAL_ENV="C:\Users\MI FAMILIA YANELLI\Desktop\gly.proyecto\ggg\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
