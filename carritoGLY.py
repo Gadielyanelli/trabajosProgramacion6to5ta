@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import psycopg
 from pydantic import BaseModel
 
+
 load_dotenv()
 password = os.getenv("passwords")
 
@@ -48,7 +49,6 @@ class carrito:
 
     def eliminarPedido(self, id_pedido: int, cursor):
         cursor.execute("DELETE FROM pedido WHERE id_pedido = %s", (id_pedido,))
-        cursor.commit()
         return {"mensaje": f"pedido {id_pedido} eliminado"}
 
     def mostrarProductos(self, cursor):
