@@ -49,18 +49,18 @@ class carrito:
 
     def eliminarPedido(self, id_pedido: int, cursor):
         cursor.execute("DELETE FROM pedido WHERE id_pedido = %s", (id_pedido,))
+
         return {"mensaje": f"pedido {id_pedido} eliminado"}
 
     def mostrarProductos(self, cursor):
-        cursor.execute("SELECT id_producto, nombre, precio FROM productos")
+        cursor.execute("SELECT * FROM productos")
         for item in cursor:
             return item
         
 
     def mostrarCliente(self, cursor):
-    
-        cliente = cursor.execute("SELECT id_cliente, nombre, apellido FROM cliente")
-        for item in cliente:
+        cursor.execute("SELECT * FROM cliente")
+        for item in cursor:
             return item
 
 
@@ -69,7 +69,7 @@ class carrito:
         return {"mensaje": "insertado"}
     
     def mostrarPedido(self, cursor):
-        cursor.execute("SELECT * FROM pedido INNER JOIN cliente ON id_cliente = cliente.id_cliente INNER JOIN productos ON id_producto = id_producto")
+        cursor.execute("SELECT * FROM pedido INNER JOIN cliente ON pedido.id_cliente = cliente.id_cliente")
         for item in cursor:
             return item
     
@@ -77,14 +77,14 @@ class carrito:
     def modificarCliente(self, id_cliente: int, cliente1: cliente, cursor):
         cursor.execute(
             "UPDATE cliente SET nombre = %s, apellido = %s WHERE id_cliente = %s",
-            (cliente1.nombre, cliente1.apellido, id_cliente)
-        )
+            (cliente1.nombre, cliente1.apellido, id_cliente))
+        
 
-      
         return {"mensaje": f"Cliente {id_cliente} actualizado"}
 
     def agregarProducto(self, producto1: producto, cursor):
-        cursor.execute(
+        cursor.execute(+-
+                       
             "INSERT INTO productos (nombre, precio) VALUES (%s, %s)",
             (producto1.nomPRODUCTOS, producto1.precio)
         )

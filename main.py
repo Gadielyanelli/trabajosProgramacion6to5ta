@@ -17,11 +17,6 @@ def ver_pedido(cursor: psycopg.Cursor = Depends(getCursor)):
 def ver_cliente(cursor: psycopg.Cursor = Depends(getCursor)):
     return cursor_Carrito.mostrarCliente(cursor)
 
-
-@app.get("/pedidos")
-def ver_pedidos(cursor: psycopg.Cursor = Depends(getCursor)):
-    return cursor_Carrito.mostrarPedido(cursor)
-
 @app.post("/insertarPedido")
 def insertarElPedido(pedido1: pedido, cursor: psycopg.Cursor = Depends(getCursor)):
     return cursor_Carrito.insertarPedido(pedido1,cursor)
